@@ -9,7 +9,7 @@ class Story
   key :voters, Array
   key :relevance, Integer, :default => 0
   key :votes, Integer,     :default => 0
-  
+  key :description, :String
   
   # Cached Values
 
@@ -27,6 +27,6 @@ class Story
   
   #Validations
   
-  validates :title, :url, :user_id, :presence => true
+  validates :title, :url, :presence => true
   
 end
