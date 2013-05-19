@@ -1,5 +1,13 @@
 <div class='container'>
 
+  <% if @story.errors.any? %>
+    <h3>Please fix the following errors</h3>
+    <ul>
+      <% @story.errors.each do |attribute, error|%>
+        <li><%=attribute.capitalize%> <%=error%></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class='form'>
 
     <h2>Create a Story</h2>

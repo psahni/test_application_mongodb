@@ -1,0 +1,14 @@
+.story{
+  margin-bottom: 30px;
+}
+
+.story .story-title{
+  font-size: 18px;
+  color: #402817;
+  font-weight: bold;
+  
+}
+
+.story .story-desc{
+  font-style: italic;
+}

@@ -1,7 +1,31 @@
+<div class='template'>
+  
 <div class='inline-divs'>
-  <div>
+  <div class='inline-div'>
     <%=link_to "Create Story", new_story_path%>
   </div>
+</div>
+
+<div class='clear'>
+</div>
+
+<% if flash[:notice] %>  
+  <div id='flash_notice'>
+    <%=flash[:notice]%>
+  </div>
+<% end %>
+
+<% if @stories.any?%>
+  <div class='stories'>
+    <% @stories.each do |story|%>
+      <div class='story'>
+        <div class='story-title'><%=story.title%></div>
+        <div class='story-desc'><%=story.description%></div>
+      </div>
+    <% end %>
+  </div>
+  
+<% end %>
 </div>
 
 

@@ -9,7 +9,7 @@ class Story
   key :voters, Array
   key :relevance, Integer, :default => 0
   key :votes, Integer,     :default => 0
-  key :description, :String
+  key :description, String
   
   # Cached Values
 
