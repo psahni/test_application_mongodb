@@ -1,3 +1,11 @@
+
+.stories{
+    margin-top: 15px;
+    background-color: #F5DE8B;
+    padding: 25px 5px 10px 10px;
+    z-index: 1500;
+}
+
 .story{
   margin-bottom: 30px;
 }

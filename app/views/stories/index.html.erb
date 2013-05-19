@@ -19,8 +19,19 @@
   <div class='stories'>
     <% @stories.each do |story|%>
       <div class='story'>
-        <div class='story-title'><%=story.title%></div>
+        <div class='story-title'>
+          <%=story.title%>
+        </div>
         <div class='story-desc'><%=story.description%></div>
+        <span>
+         <%=link_to "Edit", edit_story_path(story)%>
+        </span>    
+        <span>
+          <%=link_to "Comment", '#'%>
+        </span>
+        <span>
+          <%=link_to "Destroy", story_path(story), :method => :delete, :confirm => "Are you sure?"%>
+        </span>
       </div>
     <% end %>
   </div>

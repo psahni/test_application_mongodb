@@ -1,0 +1,42 @@
+<div class='container'>
+
+  <% if @story.errors.any? %>
+    <h3>Please fix the following errors</h3>
+    <ul>
+      <% @story.errors.each do |attribute, error|%>
+        <li><%=attribute.capitalize%> <%=error%></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class='form'>
+
+    <h2>Create a Story</h2>
+   <%=form_for @story do |form|%>
+
+    <div class='field'>
+        <label for="">Title</label>
+        <%=form.text_field :title%>
+    </div>
+
+    <div class='field'>
+     <label for="">url</label>
+     <%=form.text_field :url%>
+    </div>
+    
+    
+    <div class='field'>
+     <label for="">Description</label>
+     <%=form.text_area :description%>
+    </div>
+
+
+    <div class='field'>
+      <label for=""></label>
+      <%=form.submit "Save"%>
+    </div>
+
+    <% end %>
+
+  </div>
+
+</div>

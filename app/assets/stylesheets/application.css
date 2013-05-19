@@ -159,6 +159,10 @@ div.inline-divs a:hover{
   text-decoration: underline;
 }
 
+.field textarea{
+  width: 400px;
+  height: 130px;
+}
 
 h2{
   color: green;
