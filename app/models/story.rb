@@ -1,31 +1,30 @@
 class Story
   
-  include MongoMapper::Document
-  
+  include Mongoid::Document
+  include Mongoid::Timestamps
   
   #Relationships
   
   belongs_to :user
-  many :comments  
+  embeds_many :comments  
   
 
   
-  key :title, String
-  key :url,   String
-  key :slug,  String
-  key :voters, Array
-  key :relevance, Integer, :default => 0
-  key :votes, Integer,     :default => 0
-  key :description, String
+  field :title,  type: String
+  field :url,    type: String
+  field :slug,   type: String
+  field :voters, type: Array
+  field :relevance, type: Integer, :default => 0
+  field :votes,     type: Integer,     :default => 0
+  field :description, type: String
   
   # Cached Values
 
-  key :comment_count, Integer, :default => 0
-  key :username, String
+  field :comment_count, type: Integer, :default => 0
+  field :username,      type: String
   
   
-  key :user_id, ObjectId
-  timestamps!
+  field :user_id, type: Moped::BSON::ObjectId
   
   
   #Validations
