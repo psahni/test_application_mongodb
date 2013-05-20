@@ -18,6 +18,11 @@ class StoriesController < ApplicationController
   end
   
   
+  def show
+    @story = Story.find(params[:id])
+    @comment = @story.comments.build
+  end
+  
   def edit
     @story = Story.find(params[:id])
   end

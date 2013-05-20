@@ -1,6 +1,9 @@
 TestAppMongodb::Application.routes.draw do
   
   root :to => 'stories#index'
-  resources :stories
 
+  resources :stories do 
+    resources :comments
+  end
+  
 end

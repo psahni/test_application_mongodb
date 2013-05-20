@@ -9,11 +9,29 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# Mongo Mapper
-gem 'mongo_mapper'
 gem 'bson_ext', '1.8.6'
 
+
+# Mongoid
+gem "mongoid", ">= 3.1.2"
+
+group :test do
+  gem "mongoid-rspec", ">= 1.7.0"
+end
+
+# Authentication with Devise 
+gem "devise", ">= 2.2.3"
+
+##########################################################
+# Devise - Mongo Mapper are not working,
+# Going Back to Mongoid, because of good documentation
+# and good support from devise
+##########################################################
+
+# Mongo Mapper
+#gem 'mongo_mapper',           '~> 0.9.0'
 # Authentication
-gem 'devise'
+#gem 'devise', '>=1.2'
+# Devise port for mongo mapper gem
+#gem 'mm-devise',              '~> 1.2.0'
 

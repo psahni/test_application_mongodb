@@ -62,12 +62,16 @@ module TestAppMongodb
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.action_mailer.default_url_options = { :host => "localhost" }
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
     config.generators do |g|
-      g.orm :mongo_mapper
+      g.orm :mongoid
     end
+    
+    
     
   end
 end

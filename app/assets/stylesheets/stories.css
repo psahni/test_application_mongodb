@@ -20,3 +20,15 @@
 .story .story-desc{
   font-style: italic;
 }
+
+
+.story-comments{
+  margin-top: 30px;
+  border: 1px solid green;
+  padding: 25px;
+}
+
+.comment-user{
+  font-style: italic;
+  padding-right: 5px;
+}

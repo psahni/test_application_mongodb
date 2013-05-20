@@ -1,7 +1,14 @@
 class Story
+  
   include MongoMapper::Document
   
-  many :comments
+  
+  #Relationships
+  
+  belongs_to :user
+  many :comments  
+  
+
   
   key :title, String
   key :url,   String
@@ -19,10 +26,6 @@ class Story
   
   key :user_id, ObjectId
   timestamps!
-  
-  #Relationships
-  
-  belongs_to :user
   
   
   #Validations
