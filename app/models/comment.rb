@@ -1,7 +1,9 @@
 class Comment
-  include MongoMapper::Document
 
-  key :body, String
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  
+  field :body, type: String
   
   belongs_to :story
   

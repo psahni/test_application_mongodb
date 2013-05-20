@@ -39,6 +39,11 @@ class StoriesController < ApplicationController
   
   def destroy
     @story = Story.find(params[:id])
+    if @story.destroy
+      redirect_to [:stories], :flash => {:notice => "Story has been deleted successfully"}
+    else
+      redirect_to @story, :flash => {:error => "Story has not been deleted"}    
+    end
   end
 
 end
