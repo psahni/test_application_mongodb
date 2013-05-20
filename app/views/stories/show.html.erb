@@ -20,8 +20,13 @@
 
 </div>
 
+<% unless user_signed_in? %>
+<div class='comment_error' style='display:none;'>
+</div>
+<% end %>
+
 <div class='comment-form'>
-  <%=form_for @comment, :url => new_story_comment_path(@story) do |f|%>    
+  <%=form_for @comment, :url => story_comments_path(@story), :remote => true do |f|%>    
     <div class='field'>
       <label>Comment:</label>
       <%=f.text_area :body%>
@@ -32,3 +37,10 @@
   <% end %>
 </div>  
   
+<script>
+$(document).ready(function(){
+ $('#new_comment').on('ajax:error', function(evt, xhr, res){
+    $('div.comment_error').attr('id', 'flash_error').html(xhr.responseText).slideDown();
+  })
+});
+</script>

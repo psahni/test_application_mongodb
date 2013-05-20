@@ -32,3 +32,17 @@
   font-style: italic;
   padding-right: 5px;
 }
+
+ul.nav{
+  float: right;
+}
+
+
+ul.nav li{
+  display: inline;
+  padding: 5px;
+}
+
+ul.nav li a{
+    color: white;
+}

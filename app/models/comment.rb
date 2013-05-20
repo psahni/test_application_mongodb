@@ -6,5 +6,6 @@ class Comment
   field :body, type: String
   
   belongs_to :story
+  belongs_to :user
   
 end
