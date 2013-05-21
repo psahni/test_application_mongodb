@@ -11,17 +11,14 @@
  <h1><%=@story.title%></h1>
  <%=@story.description%> 
 </div>
-<%logger.info "==================== DISPLAYING COMMENTS======================="%>
-<%logger.info @story.comments.inspect%>
-<% if @story.comments.any? %>
-  <div class='story-comments'>
-
-    <% @story.comments.each do |comment|%>
-      <%=render :partial => 'comment', :locals => {:comment => comment }%>
-    <% end %>
-    
-  </div>
-<% end %>
+  
+<div class='story-comments' style='<%=@story.comments.blank? ? 'display:none;' : 'display:block;'%>'>
+ 
+  <% @story.comments.each do |comment|%>
+    <%=render :partial => 'comment', :locals => {:comment => comment }%>
+  <% end %>
+  
+</div>
 
 <% unless user_signed_in? %>
   <div class='comment_error' style='display:none;'>
@@ -33,9 +30,8 @@
 <% end %>
 
 <div class='comment-section mt-large'>
-
   <div class='comment-form'>
-
+  
     <div id='comment-errors'>    
     </div>
     
@@ -50,19 +46,5 @@
     <% end %>
 
   </div>
-
 </div>  
   
-<script>
-$(document).ready(function(){
- $('#new_comment').on('ajax:error', function(evt, xhr, res){
-    
-    if($('div.comment_error').length)
-      $('div.comment_error').attr('id', 'flash_error').html(xhr.responseText).slideDown();
-    else{
-      $errors = JSON.parse(xhr.responseText);
-      $('#comment-errors').html(App.errorTemplate($errors))
-    }
-  });
-});
-</script>

@@ -1,0 +1,4 @@
+var html='<%=escape_javascript(render :partial => 'stories/comment', :locals => {:comment => @comment})%>'
+$('.story-comments').show().append(html);
+$('#new_comment')[0].reset();
+$('#comment-errors').html('');

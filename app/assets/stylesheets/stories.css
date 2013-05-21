@@ -28,6 +28,9 @@
   padding: 25px;
 }
 
+.comment{
+  margin-top: 10px;
+}
 .comment-user{
   font-style: italic;
   padding-right: 5px;
@@ -63,4 +66,5 @@ ul.nav li a{
 #user-logged-in span{
   color: #3B5998;
 }
+
 

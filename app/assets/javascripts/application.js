@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require tools
+//= require comments
 //= require_tree .
