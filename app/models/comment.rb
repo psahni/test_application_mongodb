@@ -12,11 +12,6 @@ class Comment
   #Validations
   validates :body, :user_id, :story_id,  :presence => true
   
-  after_create :test
   
-  
-  def test
-    Rails.logger.info "========= After create comment ==================="
-  end
   
 end

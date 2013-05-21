@@ -1,6 +1,9 @@
 ## Mongo DB test application
 
-* ODM - Mongo Mapper
+* ODM - Mongoid
+* Models - Story, Comment, User
+* Used Devise for Authentication
+
 
 ## References
 
