@@ -15,8 +15,8 @@
  
  html, body {
   background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
 }
 
 a img {
@@ -39,7 +39,7 @@ a:hover{
 #container, .container {
   width: 75%;
   margin: 0 auto;
-  background-color: #FFF;
+  background-color: #FCFCFA;
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px;
@@ -168,4 +168,42 @@ h2{
   color: green;
 }
 
+.float-right{
+  float: right;
+}
 
+.for-stories{
+  display: block;
+  border: 1px solid black;
+  width: 81%;
+  margin: 0 auto;
+  height: 60px;
+  background-color: #999;
+}
+.for-stories h3{
+ padding-left: 15px;
+ width: 300px;
+ display: inline;
+ padding-top: 5px;
+ float: left;
+}
+
+
+/* Error Display */
+ul.errors{
+ background:#ffebe8;
+ border:1px solid #dd3c10;
+ line-height:15px;
+ margin:10px 0 0 0;
+ text-align:center;
+ overflow:hidden;
+ opacity: 1;
+ height: auto;
+ width: 400px;
+   padding: 7px 3px 7px 3px;
+}
+
+ul.errors li{
+  display: inline;
+
+}

@@ -1,15 +1,17 @@
 TestAppMongodb::Application.routes.draw do
   
-  devise_for :users
-
+  
+  authenticated :user do
+    root :to => 'stories#index'
+  end
+  
   root :to => 'stories#index'
 
   resources :stories do 
     resources :comments
   end
   
-  resources :session
-  resources :registrations
-  resources :passwords
-  
+  devise_for :users
+
+
 end

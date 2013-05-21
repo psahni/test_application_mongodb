@@ -35,14 +35,32 @@
 
 ul.nav{
   float: right;
+  padding-right: 15px;
 }
 
 
 ul.nav li{
   display: inline;
-  padding: 5px;
+  padding: 0px 5px 0px 0px;
 }
 
 ul.nav li a{
     color: white;
 }
+
+.mt-large{
+  margin-top: 30px;
+}
+.mt-small{
+  margin-top: 10px;
+}
+
+#user-logged-in{
+  margin-top: 30px;
+  padding: 12px;
+}
+
+#user-logged-in span{
+  color: #3B5998;
+}
+

@@ -11,36 +11,58 @@
  <h1><%=@story.title%></h1>
  <%=@story.description%> 
 </div>
+<%logger.info "==================== DISPLAYING COMMENTS======================="%>
+<%logger.info @story.comments.inspect%>
+<% if @story.comments.any? %>
+  <div class='story-comments'>
 
-<div class='story-comments'>
-
-  <div class='comment'>
-    <span class='comment-user'>Anuj Says:</span>This story goes very deep
+    <% @story.comments.each do |comment|%>
+      <%=render :partial => 'comment', :locals => {:comment => comment }%>
+    <% end %>
+    
   </div>
-
-</div>
-
-<% unless user_signed_in? %>
-<div class='comment_error' style='display:none;'>
-</div>
 <% end %>
 
-<div class='comment-form'>
-  <%=form_for @comment, :url => story_comments_path(@story), :remote => true do |f|%>    
-    <div class='field'>
-      <label>Comment:</label>
-      <%=f.text_area :body%>
+<% unless user_signed_in? %>
+  <div class='comment_error' style='display:none;'>
+  </div>
+<% else %>
+  <div id='user-logged-in'>
+    <strong>Logged in as: </strong><span><%=current_user.name.capitalize%></span>
+  </div>
+<% end %>
+
+<div class='comment-section mt-large'>
+
+  <div class='comment-form'>
+
+    <div id='comment-errors'>    
     </div>
-    <div class='field'> 
-      <%=f.submit "Submit"%>
-    </div>
-  <% end %>
+    
+    <%=form_for @comment, :url => story_comments_path(@story), :remote => true do |f|%>    
+      <div class='field'>
+        <label>Comment:</label>
+        <%=f.text_area :body%>
+      </div>
+      <div class='field'> 
+        <%=f.submit "Submit"%>
+      </div>
+    <% end %>
+
+  </div>
+
 </div>  
   
 <script>
 $(document).ready(function(){
  $('#new_comment').on('ajax:error', function(evt, xhr, res){
-    $('div.comment_error').attr('id', 'flash_error').html(xhr.responseText).slideDown();
-  })
+    
+    if($('div.comment_error').length)
+      $('div.comment_error').attr('id', 'flash_error').html(xhr.responseText).slideDown();
+    else{
+      $errors = JSON.parse(xhr.responseText);
+      $('#comment-errors').html(App.errorTemplate($errors))
+    }
+  });
 });
 </script>

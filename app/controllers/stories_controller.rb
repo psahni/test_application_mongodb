@@ -20,7 +20,7 @@ class StoriesController < ApplicationController
   
   def show
     @story = Story.find(params[:id])
-    @comment = @story.comments.build
+    @comment = Comment.new
   end
   
   def edit
